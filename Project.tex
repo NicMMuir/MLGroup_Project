@@ -37,5 +37,21 @@ We are using the eleven attributes to predict the quality of the wine
 We initially had it as the quality between 0 and 10,but this posed a classification problem as there where too many possible outcomes and data for the outliers (0,1,2,8,9,10) thus we changed the
 
 
+\section{Classification Algorithms}
+\begin{itemize}
+    \item Decision Trees
+    \item Naive Bayes
+    \item Normal Logistic Regression
+\end{itemize}
+\subsection{Normal Logistic Regression}
+Logistic Regression learns the parameters of its respective model with theta values corresponding to each column of the design matrix.(e.g.If we have 11 columns for a data point , together with the bias column we would have 12 and thus we would we have 12 theta values for the design matrix.The key factor in our model is that we had 11 different classes so our task was complicated in that we had to perform a 1 vs all algorithm 11 times to create 11 models with its own respective theta values(parameters). We learn these parameters using gradient descent together with the heuristic function for each data point in the datasets. We used a learning rate of 1e-4 as this gave the best result when checked with the validation data which allowed us to learn this hyperparameter. We decided to refrain from using regularisation as our model was not overfitting as the process of regularisation is to mitigate the effects of overfitting and preventing it from occurring.The accuracy of our model ranges from 88-92 percent and error would be between 9-12 percent for the red wine data set.The accuracy of our models are great as we took into account not only the diagonal elements but the elements to the left and right of a particular diagonal element due to the relationship between our classes being so similar.The confusion matrices are printed at the end of our datasets.Due to the multiclass nature of our datasets, we use the softmax function which calculates the probability of a data point belonging to a particular class and thus if we use the 11 different parameter sets together with a data point we will gather the probability of a data point belonging to all the classes and we can choice the maximum value from there to predict the class of a data point.
+
+\begin{itemize}
+    \item We chose normal regularisation as its a great algorithm when trying to classify data points.Gradient descent is also super efficient and also allows us to choose how fast our model learns.It is used efficiently when our data is linearly separable.The algorithm is also very easy to implement.One last advantage is that it can be used for multi class classification as well as one vs one classification.As discussed above we didn't add regularisation as our model does not overfit.
+    \item Of course with logistic regression we used the sigmoid function in our heuristic function as it is the best non-linear basis function to use when trying to differentiate between two classes as if the value of a data point after applying the sigmoid function to it is a value between 0 and 1, if the value is above 0.5 we can state that the data point is associated to class and if the value is below 0.5 we can safely assume that this data point corresponds to class 0. This function allows us to draw a decision boundary of model by applying the dot product between the parameters(theta values) and the features and equating it to zero.
+    \item Our alpha that we used was 1e-4 as we saw that with this value our algorithm runs most efficiently , we made it a parameter to our gradient descent function so it can be tested relatively easily by changing the parameter passed to the gradient descent function.If alpha exceeded this value it would sometimes overshoot the minimum and diverge.If the alpha is lower than this it would converge very slowly.
+\end{itemize}
+
+
 
 \end{document}
