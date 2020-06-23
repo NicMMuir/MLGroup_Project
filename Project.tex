@@ -4,6 +4,8 @@
 \author{Nicholas Muir}
 \begin{document}
 \maketitle
+
+
 \begin{abstract}
 This Project serves to apply multiple supervised learning algorithms to a dataset.
 \end{abstract}
@@ -13,7 +15,6 @@ This Project serves to apply multiple supervised learning algorithms to a datase
 \section{Dataset}
 
 The Dataset is a combination of both red and white wine data to asses the quality of wines given specific data.
-Namely:
 
 \begin{itemize}
 \item fixed acidity
@@ -34,7 +35,7 @@ Number of Instances: red wine - 1599; white wine - 4898.
 Number of Attributes: eleven + output attribute
 
 We are using the eleven attributes to predict the quality of the wine
-We initially had it as the quality between 0 and 10,but this posed a classification problem as there where too many possible outcomes and data for the outliers (0,1,2,8,9,10) thus we changed the
+We initially had it as the quality between 0 and 10,but this posed a classification problem as there where too many possible outcomes and data for the outlier's (0,1,2,8,9,10) as most of the data was centred around (4,5,6).
 
 
 \section{Classification Algorithms}
@@ -43,6 +44,12 @@ We initially had it as the quality between 0 and 10,but this posed a classificat
     \item Naive Bayes
     \item Normal Logistic Regression
 \end{itemize}
+
+\section{Decision Trees}
+
+\section{Naive Bayes}
+
+
 \subsection{Normal Logistic Regression}
 Logistic Regression learns the parameters of its respective model with theta values corresponding to each column of the design matrix.(e.g.If we have 11 columns for a data point , together with the bias column we would have 12 and thus we would we have 12 theta values for the design matrix.The key factor in our model is that we had 11 different classes so our task was complicated in that we had to perform a 1 vs all algorithm 11 times to create 11 models with its own respective theta values(parameters). We learn these parameters using gradient descent together with the heuristic function for each data point in the datasets. We used a learning rate of 1e-4 as this gave the best result when checked with the validation data which allowed us to learn this hyperparameter. We decided to refrain from using regularisation as our model was not overfitting as the process of regularisation is to mitigate the effects of overfitting and preventing it from occurring.The accuracy of our model ranges from 88-92 percent and error would be between 9-12 percent for the red wine data set.The accuracy of our models are great as we took into account not only the diagonal elements but the elements to the left and right of a particular diagonal element due to the relationship between our classes being so similar.The confusion matrices are printed at the end of our datasets.Due to the multiclass nature of our datasets, we use the softmax function which calculates the probability of a data point belonging to a particular class and thus if we use the 11 different parameter sets together with a data point we will gather the probability of a data point belonging to all the classes and we can choice the maximum value from there to predict the class of a data point.
 
@@ -52,6 +59,21 @@ Logistic Regression learns the parameters of its respective model with theta val
     \item Our alpha that we used was 1e-4 as we saw that with this value our algorithm runs most efficiently , we made it a parameter to our gradient descent function so it can be tested relatively easily by changing the parameter passed to the gradient descent function.If alpha exceeded this value it would sometimes overshoot the minimum and diverge.If the alpha is lower than this it would converge very slowly.
 \end{itemize}
 
+
+
+
+
+
+
+\section{Outcomes}
+\subsection{Decision Trees}
+\subsection{Naive Bayes}
+\subsection{Normal Logistic Regression}
+
+\section{Code}
+\subsection{Decision Trees}
+\subsection{Naive Bayes}
+\subsection{Normal Logistic Regression}
 
 
 \end{document}
