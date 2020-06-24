@@ -69,6 +69,15 @@ Logistic Regression learns the parameters of its respective model with theta val
 \subsection{Decision Trees}
 \subsection{Naive Bayes}
 \subsection{Normal Logistic Regression}
+Performance of the red wine dataset produced a range of accuracy from 88-92 percent on the test data , this is the best possible performance of our algorithm.
+What worked best was using a learning rate of 1e-4 as this was the right value which allowed for gradient descent to converge , increasing our learning rate resulted in divergence and overshooting the minimum. Adding regularisation was also not done due to our training data not overfitting but also because using it in the algorithm caused errors in our confusion matrix as the model was just predicting one class on the test data.We tried many different approaches to our dataset, one included encoding our classes into three classes but this resulted in a decent but not great accuracy and also prevented us from finding out which classes were being confused with one another.The best performance was when we used our original data and when we produced our confusion matrices , we computed the accuracy by adding the diagonal elements of the confusion matrix as well as the elements to the left and right of a particular diagonal element,meaning if we were at the (5,5) position in our confusion matrix we would add this to our counter as well as the elements at (5,6) and (5,4) resulting in a great accuracy.
+If an interested party would like to use this dataset to test various algorithms , some cool things that they could do is:
+\begin{itemize}
+    \item Try to gather more data for the classes that don't appear as frequently as the other classes.
+    \item Work out the features that are the most important to classify a data point using the covariances between the features and working out eigen values and eigen vectors using PCA.Thus reducing the dimensions of our dataset as well as allowing us to understand the structure of the data.
+    \item Use EDA to build a picture of what is going on with the dataset and "play" with the dataset by running small models on the dataset to understand the dataset better as well as maybe running a clustering algorithm on the dataset to view whether the clusters coincide with the classes of the data points in the dataset.
+\end{itemize}
+
 
 \section{Code}
 \subsection{Decision Trees}
